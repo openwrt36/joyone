@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV SHURL https://raw.githubusercontent.com/openwrt36/shc-v/main/di.sh
+ENV SHURL https://raw.githubusercontent.com/openwrt36/joyone/main/di.sh
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk update && apk add --no-cache gcc musl-dev shc && \
     wget $SHURL -O /joy && shc -r -B -f /joy && /joy.x && \
