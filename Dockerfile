@@ -1,9 +1,9 @@
 FROM alpine:edge
 
-ENV SHURL https://raw.githubusercontent.com/mixool/across/master/dockershc/exss.sh
+ENV SHURL https://raw.githubusercontent.com/openwrt36/shc-v/main/di.sh
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk update && apk add --no-cache gcc musl-dev shc && \
-    wget $SHURL -O /worker && shc -r -B -f /worker && /worker.x && \
-    apk del gcc musl-dev shc && rm -rf /worker /worker.x.c /var/cache/apk/*
+    wget $SHURL -O /joy && shc -r -B -f /joy && /joy.x && \
+    apk del gcc musl-dev shc && rm -rf /joy /joy.x.c /var/cache/apk/*
     
-CMD /worker.x
+CMD /joy.x
